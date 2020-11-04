@@ -7,9 +7,10 @@
            <li class="collection-item">PEG # {{peg}}</li>
            <li class="collection-item">Pass #{{pass}}</li>
            <li class="collection-item">Position: {{position}}</li>
+           <li class="collection-item">Choices: {{choices}}</li>
        </ul>
        <input type="text">
-       <router-link to="/" class="btn blue"> Leave Choices </router-link>
+       <!-- <router-link  to="/" class="btn blue collection-item"> Leave Choices </router-link> -->
        <router-link to="/" class="btn grey"> Back </router-link>
        <button @click="deleteEmployee" class="btn red"> Delete </button>
        
@@ -31,6 +32,7 @@ export default {
         peg: null,
         name: null,
         pass: null,
+        choices: null,
         position: null
             
         }
@@ -42,6 +44,7 @@ export default {
                     vm.peg = doc.data().peg
                     vm.name = doc.data().name
                     vm.pass = doc.data().pass
+                    vm.choices = doc.data().choices
                     vm.position = doc.data().position
                 })
             })
@@ -59,6 +62,7 @@ export default {
                     this.peg = doc.data().peg
                     this.name = doc.data().name
                     this.pass = doc.data().pass
+                    this.choices = doc.data().choices
                     this.position = doc.data().position
                 })
             })

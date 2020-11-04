@@ -4,22 +4,27 @@
     <div class="row">
     <form @submit.prevent="updateEmployee" class="col s12">
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12">Peg:
           <input type="text" v-model="peg" required>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12">Name:
           <input type="text" v-model="name" required>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12">Pass:
           <input type="text" v-model="pass" required>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12">Choices:
+          <input type="text" v-model="choices" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">Position:
           <input type="text" v-model="position" required>
         </div>
       </div>
@@ -39,6 +44,7 @@
         peg: null,
         name: null,
         pass: null,
+        choices: null,
         position: null
       }
     },
@@ -49,6 +55,7 @@
             vm.peg = doc.data().peg
             vm.name = doc.data().name
             vm.pass = doc.data().pass
+            vm.choices = doc.data().choices
             vm.position = doc.data().position
           })
         })
@@ -64,6 +71,7 @@
             this.peg = doc.data().peg
             this.name = doc.data().name
             this.pass = doc.data().pass
+            this.choices = doc.data().choices
             this.position = doc.data().position
           })
         })
@@ -75,6 +83,7 @@
               peg: this.peg,
               name: this.name,
               pass: this.pass,
+              choices: this.choices,
               position: this.position
             })
             .then(() => {
