@@ -5,7 +5,7 @@
     <form @submit.prevent="saveEmployee" class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <input type="number" min="0" onKeyPress="if(this.value.length==3) return false;" v-model="peg" required>
+          <input type="number" min="0"  onKeyPress="if(this.value.length==3) return false;" minlength="3" v-model="peg" required>
           <label>PEG # (Please put 3 value peg# example if peg is # 3 = 003)</label>
         </div>
       </div>
