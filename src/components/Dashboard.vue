@@ -17,6 +17,7 @@
 </svg>
            </router-link>
            </li>
+          
        </ul>
     <div class="fixed-action-btn">
         <router-link to= "/new" >
@@ -29,30 +30,33 @@
    </div> 
 </template>
 
+
 <script>
-import db from './firebaseInit'
-export default {
+  import db from './firebaseInit'
+  export default {
     name: 'dashboard',
     data () {
-        return {
-            Operators: []
-        }
+      return {
+        Operators: [],
+        loading: true
+      }
     },
+   
     created () {
-        db.collection('Operators').orderBy('peg').get().then
-        (querySnapshot => {
-            querySnapshot.forEach(doc => {
-            const data = {
-                'id': doc.id,
-                'name': doc.data().name,
-                'peg': doc.data().peg,
-                'pass': doc.data().pass,
-                'position': doc.data().position,
-
-            }
-            this.Operators.push(data)
-          })
+      db.collection('Operators').orderBy('peg').get().then((querySnapshot) => {
+        this.loading = false
+        querySnapshot.forEach((doc) => {
+          const data = {
+            'id': doc.id,
+            'peg': doc.data().peg,
+            'name': doc.data().name,
+            'pass': doc.data().pass,
+            'choices': doc.data().choices,
+            'position': doc.data().position
+          }
+          this.Operators.push(data)
         })
+      })
     }
-}
+  }
 </script>
