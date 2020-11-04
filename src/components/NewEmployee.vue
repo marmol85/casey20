@@ -5,8 +5,8 @@
     <form @submit.prevent="saveEmployee" class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <input type="text" v-model="peg" required>
-          <label>PEG #</label>
+          <input type="number" min="0" onKeyPress="if(this.value.length==3) return false;" v-model="peg" required>
+          <label>PEG # (Please put 3 value peg# example if peg is # 3 = 003)</label>
         </div>
       </div>
       <div class="row">
@@ -17,7 +17,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input type="text" v-model="pass" required>
+          <input min="0" onKeyPress="if(this.value.length==6) return false;" type="number" v-model="pass" required>
           <label>PASS</label>
         </div>
       </div>
